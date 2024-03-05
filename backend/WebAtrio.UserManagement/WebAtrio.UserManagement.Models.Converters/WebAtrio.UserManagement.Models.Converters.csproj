@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebAtrio.UserManagement.Models.DTO\WebAtrio.UserManagement.Models.DTO.csproj" />
+    <ProjectReference Include="..\WebAtrio.UserManagement.Models.Entities\WebAtrio.UserManagement.Models.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
