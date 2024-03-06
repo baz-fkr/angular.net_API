@@ -13,6 +13,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add CORS support (to enable the local Angular client to call the API)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DevelopmentPolicy",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 var configuration = builder.Configuration;
 builder.Services.AddDbContext<UMDbContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("UserDatabase")));
@@ -29,6 +41,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Use the CORS middleware
+app.UseCors("DevelopmentPolicy");
 
 app.UseAuthorization();
 

@@ -1,0 +1,27 @@
+<div>
+    <h2>Liste des utilisateurs</h2>
+    <button (click)="reloadUsers()" class="btn btn-primary">Recharger les utilisateurs</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Créé le</th>
+          <th>Mis à jour le</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.createdAt | date: 'medium' }}</td>
+          <td>{{ user.updatedAt | date: 'medium' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
